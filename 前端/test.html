@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" v-model="message" />
+    <div>{{ message }}</div> -->
+</body>
+</html>
+<script>
+    /*
+    // 每 2 秒重复一次
+    let timerId = setInterval(() => alert('tick'), 2000);
+
+    // 5 秒之后停止
+    setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
+    */
+
+    // 每秒输出一次
+    // 方法一：用setInterval，函数执行时间也算在延时里了
+    
+    function printNumbers1(from, to) {
+        let curr = from;
+        let timer = setInterval (() => {
+            alert(curr);
+            if (curr < to) {
+                curr++;
+            }
+            else {
+                clearInterval(timer);
+                console.log(timer);
+            }
+        }, 1000)
+    }
+    
+
+    // printNumbers1(1, 5);
+
+    // 方法二：用嵌套的setTimeout，间隔时间控制更准确
+    /*
+    function printNumbers2(from, to) {
+        let curr = from;
+        let timer = setTimeout(function run() {
+            alert(curr);
+            if (curr < to) {
+                setTimeout(run, 1000);
+            }
+            else {
+                clearTimeout(timer);
+                console.log(timer);
+            }
+            curr++;
+        }, 1000);
+        
+    }
+    */
+"use strict";
+
+function f() {
+  let value = Math.random();
+
+  function g() {
+    debugger; // 在 Console 中：输入 alert(value); No such variable!
+  }
+
+  return g;
+}
+
+let g = f();
+g();
+    
+</script>

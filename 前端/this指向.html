@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /* 
+    var a = 1;
+    function test() {
+        console.log(this.a);
+    } 
+
+    // 直接不带任何引用形式去调用函数，则this会指向全局对象，因为没有其他影响去改变this，this默认就是指向全局对象。严格模式下return undefined，测试了一下是返回1
+    test();
+
+    var obj = {
+        a: 2,
+        test
+    }
+    // return 2，指向obj
+    obj.test();
+
+    var obj0 = {
+        a: 3,
+        obj
+    }
+    // return 2，也是指向obj，指向直属上司
+    obj0.obj.test();
+    
+    // 与第一种相同，return 1
+    var testCopy = obj.test;
+    testCopy();
+
+    
+    // 与第一种相同，return 1。可以想象setTimeout函数
+    /* function setTimeout (fn, time) {
+        // 做了什么事blablabla，最后再调用fn
+        fn()
+     }
+    */
+    // setTimeout(obj.test);
+
+    // return 2，给testCopy绑定了this的指向为obj
+    // testCopy.call(obj);
+
+    var a = 1;
+    function test(a) {
+        this.a = a;
+    }
+
+    var b = new test(2);
+    console.log(b.a); 
+    // return 2， 指向new出来的新对象
+
+    var a = 1;
+    var test = () => {
+        console.log(this.a);
+    }
+    var obj = {
+        a: 2,
+        test
+    }
+    obj.test();
+</script>

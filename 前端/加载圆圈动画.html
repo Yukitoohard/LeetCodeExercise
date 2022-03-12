@@ -1,0 +1,102 @@
+<!-- 
+    思路：
+    左右两个div拼成一个圆，设置`overflow:hidden` 
+    使用伪元素构建真正旋转的半圆
+    左边的半圆，以右边中点为tranform旋转中心顺时针旋转
+    右边的半圆，以左边中点为tranform旋转中心顺时针旋转
+ -->
+<html>
+    <body>
+        <div class="loading">
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="progress"></div>
+        </div>
+    </body>
+</html>
+
+<style>
+    body {
+        background: #000;
+    }
+    .loading {
+        margin: 100px auto;
+        width: 160px;
+        height: 160px;
+        position: relative;
+    }
+    .loading .progress {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: #000;
+        border-radius: 50%;
+        left: 20px;
+        top: 20px;
+        line-height: 120px;
+        text-align: center;
+    }
+    .left, .right {
+        width: 80px;
+        height: 160px;
+        overflow: hidden;
+        position: relative;
+        float: left;
+        background: #fff;
+    }
+    .left {
+        border-radius: 80px 0 0 80px;
+    }
+    .right {
+        border-radius: 0 80px 80px 0;
+    }
+
+    .left::after, .right::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 80px;
+        height: 160px;
+        border-radius: 80px 0 0 80px;
+        background: blue;
+        animation: 6s linear infinite;
+    }
+    .right::after {
+        content: "";
+        position: absolute;
+        display: block;
+        border-radius: 0 80px 80px 0;
+    }
+    .left::after {
+        transform-origin: right center;
+        animation-name: spin-left;
+    }
+    .right::after {
+        transform-origin: left center;
+        animation-name: spin-right;
+    }
+
+    @keyframes spin-right {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+
+    @keyframes spin-left {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+</style>

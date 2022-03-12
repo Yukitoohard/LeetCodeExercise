@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .square {
+        width: 100px;
+        height: 90px;
+        border-radius: 5px;
+        background-color: yellowgreen;
+        position: relative;
+        margin: 150px auto;
+        text-align: center;
+        line-height: 90px;
+    }
+    .triangle {
+        position: absolute;
+        top: 40%;
+        right: -20px;
+        width: 0;
+        height: 0;
+        border: 10px solid;
+        border-color: transparent transparent transparent yellowgreen;
+        /* 当div的宽度和高度都是0的时候，它的整个边框是由四个三角形组成的，每一边为一个三角形，那么我们就可以利用这个特点，来做小尖角，我们只要把不需要的三边的边框颜色设置为透明即可，这样只要能看到你想要的那个三角形了，然后再利用定位调整一下位置就可以了。 */
+    }
+</style>
+<body>
+    <div class="square">
+        气泡
+        <div class="triangle"></div>
+    </div>
+    
+</body>
+</html>

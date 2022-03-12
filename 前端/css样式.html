@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            /*display: none; */ /* 通过隐藏盒子属性，隐藏之后不占据原来的位置(脱标) */
+            /*visibility: hidden; /* 隐藏之后还占据原来的位置(不脱标) */
+            opacity: 1;  /* 通过改变透明度来隐藏(不脱标) */
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            /* position: absolute;  /* 通过定位将元素定到远离页面的位置，脱标 */
+            /* clip-path: polygon(0px 0px 0px 0px 0px 0px); */  /* 通过裁剪盒子，不脱标 */
+            /* position: absolute; */  
+            /* clip: rect(0px 0px 0px 0px); */  /* position: absolute; 配合通过裁剪绝对定位的盒子，脱标 */
+        }        
+        .child {
+            height: 50px;
+            width: 50px;
+            opacity: 1;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="box">    
+            <div class="child"></div>
+        </div>
+</body>
+</html>
+<script>
+    // console.log(a);
+    let a = 1;
+    console.log(window.a);
+</script>
