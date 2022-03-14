@@ -10,6 +10,8 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
+    // 官方题解，感觉有点乱
+    /*
     let n = nums.length;
     // 排序
     nums.sort((a, b) => a - b);
@@ -41,6 +43,32 @@ var threeSum = function(nums) {
             }
         }
     }
+    */
+
+    // 方法二，感觉比较优雅
+    let res = [];
+    let n = nums.length;
+    if (nums == null || n < 3) return res;
+    nums.sort((a, b) => a - b);
+    for (let i=0; i<n; i++) {
+        if (nums[i] > 0) break; // 排序之后如果第一个数字大于0，则后面三数之和一定大于0
+
+        if (i > 0 && nums[i] == nums[i-1]) continue;
+        let l = i + 1, r = n - 1;
+        while (l < r) {
+            const sum = nums[i] + nums[l] + nums[r];
+            if (sum == 0) {
+                res.push([nums[i], nums[l], nums[r]]);
+                while (l < r && nums[l] == nums[l+1]) l++;
+                while (l < r && nums[r] == nums[r-1]) r--;
+                l++;
+                r--;
+            }
+            else if (sum < 0) l++;
+            else if (sum > 0) r--;
+        }
+    }
+
     return res;
 };
 // @lc code=end
