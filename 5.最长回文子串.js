@@ -56,8 +56,8 @@ var longestPalindrome = function(s) {
         // 处理偶数长度
         const s2 = palindrome(s, i, i+1);
 
-        res = res.length < s1.length ? s1 : res;
-        res = res.length < s2.length ? s2 : res;
+        res = res.length <= s1.length ? s1 : res;
+        res = res.length <= s2.length ? s2 : res;
     }
     return res;
     // 返回以l，r为中心点的最长回文串
