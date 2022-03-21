@@ -31,17 +31,48 @@ console.log(arr3);
 
 var name = "The Window";
 
-　　var object = {
-　　　　name : "My Object",
+var object = {
+    name: "My Object",
 
-　　　　getNameFunc : function(){
-　　　　　　var that = this;
-　　　　　　return function(){
-　　　　　　　　return that.name;
-　　　　　　};
+    getNameFunc: function () {
+        var that = this;
+        return function () {
+            return that.name;
+        };
+    }
 
-　　　　}
+};
 
-　　};
+console.log(object.getNameFunc()());
 
-　　console.log(object.getNameFunc()());
+function n() {
+    var a = 2;
+    function foo() {
+        console.log(a);;
+    }
+    function bar() {
+        var a = 3;
+        foo();
+    }
+    return a;
+}
+console.log(n());
+
+console.log(n.prototype);
+
+function Parent() {
+    this.name = "parent1";
+}
+
+Parent.prototype.getName = function() {
+    return this.name;
+}
+
+function Child() {
+    Parent.call(this);
+    this.type = 'child';
+}
+
+let child = new Child();
+console.log(child);
+console.log(child.getName);
