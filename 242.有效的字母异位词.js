@@ -27,6 +27,7 @@ var isAnagram = function(s, t) {
         table[t.codePointAt(i) - 'a'.codePointAt(0)]--;
         if (table[t.codePointAt(i) - 'a'.codePointAt(0)] < 0) return false;
     }
+    
     return true;
 };
 // @lc code=end
