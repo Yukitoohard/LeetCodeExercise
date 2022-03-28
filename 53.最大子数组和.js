@@ -30,6 +30,7 @@ var maxSubArray = function(nums) {
     }
     return max_so_far;
     */
+    // 代码二
     let ans = nums[0];
     let sum = 0;
     for (let num of nums) {
