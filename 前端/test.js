@@ -76,3 +76,30 @@ function Child() {
 let child = new Child();
 console.log(child);
 console.log(child.getName);
+
+let a = "Hello there";
+function first() {
+    console.log("Inside first");
+    second();
+    console.log("Again inside first");
+}
+
+function second() {
+    console.log("Inside second");
+}
+
+first();
+console.log("Inside global Exe Context");
+
+let str = 'xxx';
+console.log(str instanceof String);
+
+function Test(name) {
+    this.name = name;
+    console.log(this);
+    return {age: 24};
+}
+
+const t = new Test('xxx');
+console.log(t.name);
+console.log(t);
