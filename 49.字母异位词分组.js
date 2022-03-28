@@ -42,6 +42,7 @@ var groupAnagrams = function(strs) {
         map[count] ? map[count].push(str) : map[count] = [str];
     }
     return Object.values(map);
+    
 };
 // @lc code=end
 
