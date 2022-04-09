@@ -103,3 +103,25 @@ function Test(name) {
 const t = new Test('xxx');
 console.log(t.name);
 console.log(t);
+
+let inputs = ["2", "4 2 3 4 5", "5 1 5 4 2 1"];
+// let nums = [5, 1, 3, 3, 4, 5];
+
+let len = parseInt(inputs[0]);
+// console.log(typeof len);
+for (let i=1; i<=len; i++) {
+    let sum = 0;
+    let nums = inputs[i].split(' ');
+    // console.log(nums);
+    let n = nums[0];
+    for (let j = 1; j <= n; j++) {
+        // console.log(nums[j]);
+        sum += parseInt(nums[j]);
+    }
+    console.log(sum);
+}
+
+let quickArr = [-2,-1,0,1,2];
+let mid = Math.floor(quickArr.length/2);
+let midNumber = quickArr.splice(mid, 1)[0];
+console.log(midNumber, quickArr);
