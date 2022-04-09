@@ -1,0 +1,31 @@
+<!-- 
+    描述
+    请补全JavaScript代码，要求以Boolean的形式返回字符串参数是否为合法的URL格式。
+    注意：
+    1. 协议仅为HTTP(S) 
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _isUrl = url => {
+                // 补全代码
+                let pattern = new RegExp(/^(([a-zA-Z]+):\/\/)([\w]+-[\w]+|[\w]+\.)+(:\d*)?/)
+                return pattern.test(url);
+
+                let pattern = /^(([a-zA-Z]+):\/\/)([\w]+-[\w]+|[\w]+\.)+(:\d*)?/
+                return pattern.test(url);
+
+                let pattern = /^((http|https):\/\/)?(([\w]+-[\w]+|[\w]+)\.)+([A-Za-z]+)(:\d+)?(\/.*)?(\?.*)?(#.*)?$/;
+                return pattern.test(url);
+            }
+        </script>
+    </body>
+</html>
+
+
