@@ -11,8 +11,11 @@
 */
 
 // 方法一 没有去除{}诶
+
 let arr1 = [false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN];
+
 const helper = (arr) => {
+    /*
     if (!(arr instanceof Array)) {
         return "Not an Array";
     }
@@ -30,6 +33,27 @@ const helper = (arr) => {
                 res.push(arr[i]);
             }
         }
+    }
+    return res;
+    */
+    // let arr = this;
+    let isNaN = true;
+    let res = [];
+    /*if (!(arr instanceof Array)) {
+        return "Not an Array";
+    }*/
+    for (let i=0; i<arr.length; i++) {
+        // NaN不等于任何，包括它自身，所以arr.indexOf(arr[i])遇到NaN永远返回-1
+        if (arr.indexOf(arr[i]) != -1) {
+            if (i === arr.indexOf(arr[i])) {
+                res.push(arr[i]);
+            }
+        }
+        else if(isNaN) {
+            res.push(arr[i]);
+            isNaN = false;
+        }
+        
     }
     return res;
 }
