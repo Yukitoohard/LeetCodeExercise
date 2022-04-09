@@ -1,0 +1,61 @@
+<!-- 
+    请补全JavaScript代码，要求将数组参数中的数字从小到大进行排序并返回该数组。
+    注意：
+    1. 数组元素仅包含数字
+    2. 请优先使用快速排序方法
+    
+    输入：
+    _quickSort([0,-1,1,-2,2])
+    输出：
+    [-2,-1,0,1,2]
+ -->
+
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            const _quickSort = array => {
+                // 补全代码
+                // return array.sort((a, b) => a-b);
+                
+                // 第一要素 结束条件：如果数组的长度小于1则直接返回
+                if (array.length <= 1) {
+                    return array;
+                }
+                
+                // 第二要素 函数目的：寻找比中间数小的放左数组，大的放右数组
+                // 先找到数组的中间位置的下标
+                let mid = Math.floor(array.length/2);
+                
+                // 在元素数组中删除这个元素，并保存这个数
+                // 为什么后面要有[0]
+                // 因为splice(mid, 1)获取到的是[arr[mid]]，是一个只有第mid个元素的数组
+                let midNumber = array.splice(mid, 1)[0];
+                
+                // 定义比中间位置数值小的数组
+                let leftArr = [];
+                // 定义比中间位置数值大的数组
+                let rightArr = [];
+                for (let i=0; i<array.length; i++) {
+                    if (midNumber > array[i]) {
+                        leftArr.push(array[i])
+                    }else {
+                        rightArr.push(array[i])
+                    }
+                }
+                
+                // 第三要素 等价关系
+                // leftArr midNumber rightSort将这三个数组拼接起来，midNumber是一个数所以要转换为数组
+                let leftSort = _quickSort(leftArr);
+                let midSort = [midNumber];
+                let rightSort = _quickSort(rightArr);
+                return leftSort.concat(midSort, rightSort);
+            }
+            
+        </script>
+    </body>
+</html>
