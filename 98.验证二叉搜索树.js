@@ -18,12 +18,19 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-    const dfs = (node, upper, lower) => {
+    const dfs = (node, lower, upper) => {
+        // lower和upper分别为下界和上界
+        // 空树也是二叉搜索树
         if (!node) return true;
         if (node.val >= upper || node.val <= lower) return false;
-        return dfs(node.left, node.val, lower) && dfs(node.right, upper, node.val);
+
+        // 遍历左子树时，左子树都应该比根节点小，所以上界为根节点的值
+        let left = dfs(node.left, lower, node.val);
+        // 遍历右子树时，右子树都应该比根节点大，所以下界为根节点的值
+        let right = dfs(node.right, node.val, upper);
+        return left && right;
     }
-    return dfs(root, +Infinity, -Infinity);
+    return dfs(root, -Infinity, +Infinity);
 };
 // @lc code=end
 
