@@ -15,7 +15,7 @@
 // F(i,n)=G(i−1)⋅G(n−i)
 var numTrees = function(n) {
     const G = new Array(n+1).fill(0);
-    // 边界情况，当序列长度为 11（只有根）或为 00（空树）时
+    // 边界情况，当序列长度为 1（只有根）或为 0（空树）时
     G[0] = 1;
     G[1] = 1;
 

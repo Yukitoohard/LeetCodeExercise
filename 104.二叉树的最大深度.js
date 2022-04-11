@@ -18,6 +18,7 @@
  * @return {number}
  */
 var maxDepth = function(root) {
+<<<<<<< HEAD
     // 方法一：递归
     /*
     let max = 0;
@@ -48,6 +49,12 @@ var maxDepth = function(root) {
         max++;
     }
     return max;
+=======
+    if (!root) return 0;
+    let left_Height = maxDepth(root.left);
+    let right_Height = maxDepth(root.right);
+    return Math.max(left_Height, right_Height) + 1;
+>>>>>>> db11f1360f54c4d1b4eb0256e50033f1d73b0c40
 };
 // @lc code=end
 
