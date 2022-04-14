@@ -7,7 +7,8 @@
 // @lc code=start
 
 var MyQueue = function() {
-
+    this.inStack = [];
+    this.outStack = [];
 };
 
 /** 
@@ -15,28 +16,38 @@ var MyQueue = function() {
  * @return {void}
  */
 MyQueue.prototype.push = function(x) {
-
+    this.inStack.push(x);
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.pop = function() {
-
+    if (!this.outStack.length) {
+        while (this.inStack.length) {
+            this.outStack.push(this.inStack.pop());
+        }
+    }
+    return this.outStack.pop();
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.peek = function() {
-
+    if (!this.outStack.length) {
+        while (this.inStack.length) {
+            this.outStack.push(this.inStack.pop());
+        }
+    }
+    return this.outStack[this.outStack.length - 1];
 };
 
 /**
  * @return {boolean}
  */
 MyQueue.prototype.empty = function() {
-
+    return this.inStack.length === 0 && this.outStack.length === 0;
 };
 
 /**
