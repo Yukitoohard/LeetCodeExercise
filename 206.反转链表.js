@@ -22,6 +22,9 @@
     let tmp = cur.next;
     cur.next = pre;
     pre = cur;
+    // 可以和双指针法的代码进行对比，如下递归的写法，其实就是做了这两步
+    // pre = cur;
+    // cur = temp;
 
     return reverse(tmp, cur);
 }
@@ -49,7 +52,6 @@ var reverseList = function(head) {
 
     // 方法二 递归
     
-
     return reverse(head, null);
 };
 // @lc code=end
