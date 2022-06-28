@@ -10,6 +10,7 @@
  * @return {number}
  */
 
+// 参考题解：https://leetcode.cn/problems/fruit-into-baskets/solution/hua-dong-chuang-kou-dong-hua-tu-jie-dai-sd5b1/
 // 求满足某个条件（数组值最多就两类的连续数组，例如[1,2,2,1,2]）的最长数组长度
 var totalFruit = function(fruits) {
     let left = 0; // 起始指针
@@ -22,7 +23,7 @@ var totalFruit = function(fruits) {
             if (arr.length <= 1) { // 如果不包含，且数组里只有一种水果（还有个篮子还没用），就放入第二种水果
                 arr[1] = fruits[right];  // 将这种水果加入arr数组中
             }
-            else { // 如果有两种水果，且遇到了第三种水果，则更新第一种水果的起始位置
+            else { // 如果有两种水果，且遇到了第三种水果，则更新新的第一种水果的起始位置
                 left = n;  // 更新窗口的左边界
                 // 更新arr中水果的种类
                 arr[0] = fruits[right - 1];  // right-1是上一种水果的品种，品种不用记录起始位置
