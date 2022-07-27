@@ -130,13 +130,14 @@ testa(a);
 console.log(a); // 1 
 */
 
-console.log(1+2 === 3); // true
+// console.log(1+2 === 3); // true
 
 
-console.log(parseInt("10.2abc"));  // 10
-console.log(parseFloat("10.2abc"));  // 10.2
-console.log(parseInt(+ "10.2abc"));  // NaN
+// console.log(parseInt("10.2abc"));  // 10
+// console.log(parseFloat("10.2abc"));  // 10.2
+// console.log(parseInt(+ "10.2abc"));  // NaN
 
+/*
 var a = 1;
 var b = 2;
 // 匿名函数
@@ -147,3 +148,9 @@ var b = 2;
 // ???
 console.log(a);; // 4
 console.log(b);; // 2
+*/
+
+let i = 2
+while (i--) {
+    console.log(i);
+}
