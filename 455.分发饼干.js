@@ -10,6 +10,9 @@
  * @param {number[]} s
  * @return {number}
  */
+
+// 时间复杂度：O(nlogn)
+// 空间复杂度：O(1
 var findContentChildren = function(g, s) {
     g = g.sort((a, b) => a-b); 
     s = s.sort((a, b) => a-b);
