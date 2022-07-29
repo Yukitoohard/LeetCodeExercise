@@ -31,19 +31,58 @@ var maxSubArray = function(nums) {
     return max_so_far;
     */
     // 代码二
-    let ans = nums[0];
-    let sum = 0;
-    for (let num of nums) {
-        // if (sum > 0)
-        if (sum + num > num) {
-            sum = sum + num;
-        }
-        else {
-            sum = num;
-        }
-        ans = Math.max(ans, sum);
+    // let ans = nums[0];
+    // let sum = 0;
+    // for (let num of nums) {
+    //     // if (sum > 0)
+    //     if (sum + num > num) {
+    //         sum = sum + num;
+    //     }
+    //     else {
+    //         sum = num;
+    //     }
+    //     ans = Math.max(ans, sum);
+    // }
+    // return ans;
+
+    // 代码随想录 动态规划
+    let len = nums.length
+    let dp = new Array(len);  // dp[i]表示包括i之前的最大连续子序列和
+    dp[0] = nums[0];
+    let result = dp[0];
+
+    if (!len) return 0;
+
+    for (let i=1; i < len; i++) {
+        dp[i] = Math.max(nums[i], dp[i-1] + nums[i]);  // 状态转移公式
+        if (dp[i] > result) result = dp[i];  // result 保存dp[i]的最大值
+        // result = Math.max(result, dp[i]);
     }
-    return ans;
+    return result;
+
+    // 贪心
+    /**
+     * 局部最优：当前“连续和”为负数的时候立刻放弃，从下一个元素重新计算“连续和”，因为负数加上下一个元素 “连续和”只会越来越小。
+       全局最优：选取最大“连续和”
+     */
+    /*
+    let count = 0;
+    let result = -Infinity;
+
+    for (let i=0; i < nums.length; i++) {
+        count += nums[i];
+        // result = Math.max(result, count);
+        if (count > result) {
+            result = count;
+        }
+        if (count <= 0) {
+            count = 0
+        }
+    }
+    return result;
+    */
+
+
 };
 // @lc code=end
 
