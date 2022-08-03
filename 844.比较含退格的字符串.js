@@ -51,6 +51,7 @@ var backspaceCompare = function(s, t) {
    let sSkipNum = 0, tSkipNum = 0;  // 记录s和t的#的数量
    let i = s.length - 1, j = t.length - 1;  // i, j指针分别指向s, t的末位字符
    while (1) {
+       // 下面两个循环把每个不需要退格的字符拿出来逐个进行比较 
        while (i >= 0) {
            // 当前字符为#，则sSkipNum自增1
            if (s[i] == '#') sSkipNum++;
@@ -64,7 +65,7 @@ var backspaceCompare = function(s, t) {
        }
        while (j >= 0) {
             if (t[j] == '#') tSkipNum++;
-            else {
+            else { 
                 if (tSkipNum > 0) tSkipNum--;
                 else break;
             }
@@ -72,7 +73,8 @@ var backspaceCompare = function(s, t) {
         }
         if (i < 0 || j < 0) break;
         // 若对比过程出现s，t当前字符不匹配则遍历结束，返回false
-        if (s[i] != t[j]) return false;  
+        if (s[i] != t[j]) return false;
+        // 当前字符相等，指针左移去判断下一个字符  
         i--; j--;
    }
    if (i == -1 && j == -1) return true;

@@ -95,6 +95,7 @@
 // let str = new String('xxx');
 // console.log(str instanceof String);   // false
 
+/*
 function Test(name) {
     this.name = name;
     console.log(this); // Test { name: 'xxx' }
@@ -104,7 +105,7 @@ function Test(name) {
 const t = new Test('xxx');
 console.log(t.name);  // undefined
 console.log(t); // { age: 24 }
-
+*/
 
 // let quickArr = [-2,-1,0,1,2];
 // let mid = Math.floor(quickArr.length/2);
@@ -129,4 +130,27 @@ testa(a);
 console.log(a); // 1 
 */
 
-console.log(1+2 === 3); // true
+// console.log(1+2 === 3); // true
+
+
+// console.log(parseInt("10.2abc"));  // 10
+// console.log(parseFloat("10.2abc"));  // 10.2
+// console.log(parseInt(+ "10.2abc"));  // NaN
+
+/*
+var a = 1;
+var b = 2;
+// 匿名函数
+(function() {
+    var b = 3;  // 声明了一个局部变量
+    a += b;  // a还是全局变量
+})();
+// ???
+console.log(a);; // 4
+console.log(b);; // 2
+*/
+
+let i = 2
+while (i--) {
+    console.log(i);
+}

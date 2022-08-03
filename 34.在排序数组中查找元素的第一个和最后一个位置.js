@@ -73,7 +73,8 @@ var searchRange = function(nums, target) {
         while (left <= right) {
             let mid = left + ((right - left) >> 1);
             if (nums[mid] >= target) { //为什么>=？
-                // 寻找左边界，就要在nums[middle] == target的时候更新right，也就是找到左边搜索数组的最右边 
+                // 寻找左边界，就要在nums[middle] == target的时候更新right
+                // 也就是找到左边搜索数组的最右边，也就是target的左边一位
                 right = mid - 1;
                 leftBorder = right;
             }
@@ -89,9 +90,10 @@ var searchRange = function(nums, target) {
     // 情况一
     if (leftBorder == -2 || rightBorder == -2) return [-1, -1];
     // 情况三
+    // 找到左右边界，就是target的左边一位和右边一位，所以最后返回值left要右移一位，right要左移一位
     if (rightBorder - leftBorder > 1) return [leftBorder + 1, rightBorder - 1];
     // 情况二
     return [-1, -1];
 }
-// @lc code=end
+// @lc code=end 
 

@@ -17,11 +17,11 @@
  * @return {ListNode}
  */
 var swapPairs = function(head) {
-    let dummyHead = new ListNode(0);
-    dummyHead.next = head;
+    let dummyHead = new ListNode(0, head);
     let cur = dummyHead;
 
     while (cur.next && cur.next.next) {
+        // 要在循环里定义tmp和tmp1，每次交换都需要重新定义临时变量
         let tmp = cur.next;  
         let tmp1 = cur.next.next;  
         cur.next = cur.next.next;  // 虚拟头结点指向第二个节点
