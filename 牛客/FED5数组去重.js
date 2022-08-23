@@ -13,6 +13,8 @@
 // 方法一 没有去除{}诶
 
 let arr1 = [false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN];
+const newArr = arr1.forEach((n, i) => {return arr1.indexOf(n) === i})
+console.log(newArr);
 
 const helper = (arr) => {
     /*
