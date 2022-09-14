@@ -150,7 +150,18 @@ console.log(a);; // 4
 console.log(b);; // 2
 */
 
-let i = 2
-while (i--) {
-    console.log(i);
-}
+// let i = 2
+// while (i--) {
+//     console.log(i);
+// }
+
+// var a = 1;
+// function test() {
+//     console.log(a);
+//     if(false) {
+//         var a = 2;
+//     }
+// }
+// test();
+
+console.log(null == undefined);
